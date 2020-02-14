@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body>
+		<table>
+			<thead>
+					<tr>
+						<td>Id</td>
+						<td>Nombre Archivo</td>
+						<td>Fecha</td>
+						<td>Operaciones</td>
+					</tr>
+			</thead>
+			<tbody id='tabla'>
+						<script>
+							window.onload = () =>
+							{
+								let obj = document.getElementById('tabla')
+								let fila
+								let text
+								fetch('/API/Documents/DB')
+								.then((response) => response.json())
+								.then((jsonData) => {
+									jsonData.map((data) => {
+										fila = document.createElement('tr')
+										let cId = document.createElement('td')
+										text = document.createTextNode(data.Id)
+										cId.appendChild(text)
+										let cNombre = document.createElement('td')
+										text = document.createTextNode(data.Nombre_Archivo)
+										cNombre.appendChild(text)
+										let cFecha = document.createElement('td')
+										text = document.createTextNode(data.Fecha)
+										cFecha.appendChild(text)
+										let cDescarga = document.createElement('td')
+										let aDo = document.createElement('a')
+										aDo.href=`/API/Documents/VersionDB/${data.fileId}`
+										aDo.target="_blank"
+										aDo.text="Descargar"
+										cDescarga.appendChild(aDo)
+										let aDe = document.createElement('button')
+										text = document.createTextNode("Eliminar")
+										aDe.appendChild(text)
+										aDe.value=data.fileId
+										aDe.setAttribute("onclick",'myDelete()')
+										cDescarga.appendChild(aDe)
+										fila.appendChild(cId)
+										fila.appendChild(cNombre)
+										fila.appendChild(cFecha)
+										fila.appendChild(cDescarga)
+										obj.appendChild(fila)
+									})
+
+								})
+							}
+							function myDelete() {
+								let e = window.event
+								e.preventDefault()
+								fetch(`/API/Documents/${e.target.value}`,{
+									method: 'DELETE',
+									body: JSON.stringify({fileId:e.target.value})
+								}).then(response=>{
+									alert(response.json())
+									location.reload()
+								}).catch(error=>{
+									alert(error)
+									console.log(error)
+								})
+							}
+								
+									</script>
+				
+			</tobdy>
+		</table>
+		
+	</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+	<head>
+		<!-- Created by Artisteer v4.1.0.59861 -->
+		<meta charset="utf-8" />
+		<title>Subir Archivos</title>
+		<meta
+			name="viewport"
+			content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width"
+		/>
+
+		<!--[if lt IE 9
+			]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script
+		><![endif]-->
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='css/style.css') }}"
+			media="screen"
+		/>
+		<!--[if lte IE 7
+			]><link
+				rel="stylesheet"
+				href="{{ url_for('static', filename='css/style.ie7.css') }}"
+				media="screen"
+		/><![endif]-->
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='css/style.responsive.css') }}"
+			media="all"
+		/>
+
+		<script src="{{ url_for('static', filename='scripts/jquery.js') }}"></script>
+		<script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+		<script src="{{ url_for('static', filename='scripts/script.responsive.js') }}"></script>
+		<script src="{{ url_for('static', filename='scripts/jquery.ui.widget.js') }}"></script>
+		<script src="{{ url_for('static', filename='scripts/jquery.iframe-transport.js') }}"></script>
+		<script src="{{ url_for('static', filename='scripts/jquery.fileupload.js') }}"></script>
+
+		<style>
+			.art-content .art-postcontent-0 .layout-item-0 {
+				border-top-style: solid;
+				border-right-style: solid;
+				border-bottom-style: solid;
+				border-left-style: solid;
+				border-top-width: 1px;
+				border-right-width: 1px;
+				border-bottom-width: 1px;
+				border-left-width: 1px;
+				border-top-color: #cfd8e2;
+				border-right-color: #cfd8e2;
+				border-bottom-color: #cfd8e2;
+				border-left-color: #cfd8e2;
+				color: #283543;
+				padding-right: 10px;
+				padding-left: 10px;
+			}
+			.art-content .art-postcontent-0 .layout-item-1 {
+				border-top-style: solid;
+				border-right-style: solid;
+				border-bottom-style: solid;
+				border-left-style: solid;
+				border-top-width: 1px;
+				border-right-width: 1px;
+				border-bottom-width: 1px;
+				border-left-width: 1px;
+				border-top-color: #cfd8e2;
+				border-right-color: #cfd8e2;
+				border-bottom-color: #cfd8e2;
+				border-left-color: #cfd8e2;
+				border-top: none !important;
+				color: #283543;
+				padding-right: 10px;
+				padding-left: 10px;
+			}
+			.ie7 .art-post .art-layout-cell {
+				border: none !important;
+				padding: 0 !important;
+			}
+			.ie6 .art-post .art-layout-cell {
+				border: none !important;
+				padding: 0 !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="art-main">
+			<div class="art-sheet clearfix">
+				<div class="art-layout-wrapper clearfix">
+					<div class="art-content-layout">
+						<div class="art-content-layout-row">
+							<div class="art-layout-cell art-content clearfix">
+								<article class="art-post art-article">
+									<div class="art-postmetadataheader">
+										<h2 class="art-postheader">Subir Archivos</h2>
+									</div>
+									<form>
+										<div class="art-postcontent art-postcontent-0 clearfix">
+											<div class="art-content-layout">
+												<div class="art-content-layout-row">
+													<div
+														class="art-layout-cell layout-item-0"
+														style="width: 50%"
+													>
+														<input
+															id="fileupload"
+															type="file"
+															name="file"
+															accept=".docx"
+														/>
+													</div>
+												</div>
+											</div>
+											<div class="art-content-layout">
+												<div class="art-content-layout-row">
+													<div
+														class="art-layout-cell layout-item-1"
+														style="width: 100%"
+													>
+														<p style="text-align: right;">
+															&nbsp;<input
+																type="submit"
+																value="Enviar"
+																class="art-button submit-file"
+															/>
+															&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+															&nbsp;&nbsp;&nbsp;<a href="/" class="art-button"
+																>Inicio</a
+															>&nbsp;<br />
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</form>
+									<div class="art-comments clearfix"></div>
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+				<footer class="art-footer clearfix"></footer>
+			</div>
+			<p class="art-page-footer">
+				<span id="art-footnote-links"></span>
+			</p>
+		</div>
+		<script>
+			$(document).ready(function() {
+				$('form').on('submit', function(event) {
+					event.preventDefault()
+
+					var form = $(this)[0]
+					var fd = new FormData(form)
+
+					$.ajax({
+						type: 'POST',
+						url: '/API/Documents',
+						data: fd,
+						processData: false, // tell jQuery not to process the data
+						contentType: false, // tell jQuery not to set contentType
+					})
+				})
+			})
+		</script>
+	</body>
+</html>

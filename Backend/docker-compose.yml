@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    depends_on:
+      - database
+    restart: always
+    build: .
+    ports:
+      - '4000:4000'
+    volumes:
+      - .:/Backend
+  database:
+    image: mariadb:10.2
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'EZJ3dWJQGl'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'EZJ3dWJQGl'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'LtZuP4CBdl'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'LtZuP4CBdl'
+    volumes:
+      - ${PWD}/mariadb:/var/lib/mysql
+    ports:
+      - '3306:3306'

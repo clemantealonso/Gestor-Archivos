@@ -1,0 +1,14 @@
+FROM python:3.6-alpine
+
+RUN apk add --no-cache python3-dev gcc libc-dev linux-headers mariadb-dev \
+    && apk add mariadb-client mariadb \
+    && pip3 install --upgrade pip
+#Make dir Backend 
+WORKDIR /Backend
+
+#ADD all files to new directory
+ADD . /Backend
+
+RUN pip3 --no-cache-dir install -r pythonRequirements.txt
+
+CMD ["python3","app.py"]

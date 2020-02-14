@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+	<head>
+		<!-- Created by Artisteer v4.0.0.58475 -->
+		<meta charset="utf-8" />
+		<title>GESTIÓN DE ARCHIVOS</title>
+		<meta
+			name="viewport"
+			content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width"
+		/>
+
+		<!--[if lt IE 9
+			]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script
+		><![endif]-->
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='css/style.css') }}"
+			media="screen"
+		/>
+		<!--[if lte IE 7
+			]><link
+				rel="stylesheet"
+				href="{{ url_for('static', filename='css/style.ie7.css') }}"
+				media="screen"
+		/><![endif]-->
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='css/style.responsive.css') }}"
+			media="all"
+		/>
+
+		<script src="{{ url_for('static', filename='scripts/jquery.js') }}"></script>
+		<script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+		<script src="{{ url_for('static', filename='scripts/script.responsive.js') }}"></script>
+
+		<style>
+			.art-content .art-postcontent-0 .layout-item-0 {
+				border-top-style: solid;
+				border-right-style: solid;
+				border-bottom-style: solid;
+				border-left-style: solid;
+				border-top-width: 1px;
+				border-right-width: 1px;
+				border-bottom-width: 1px;
+				border-left-width: 1px;
+				border-top-color: #4c84a9;
+				border-right-color: #4c84a9;
+				border-bottom-color: #4c84a9;
+				border-left-color: #4c84a9;
+				color: #a32b0a;
+				background: #cec9c5;
+				padding-right: 10px;
+				padding-left: 10px;
+			}
+			.art-content .art-postcontent-0 .layout-item-1 {
+				margin-bottom: 5px;
+			}
+			.art-content .art-postcontent-0 .layout-item-2 {
+				border-top-style: solid;
+				border-right-style: solid;
+				border-bottom-style: solid;
+				border-left-style: solid;
+				border-top-width: 1px;
+				border-right-width: 1px;
+				border-bottom-width: 1px;
+				border-left-width: 1px;
+				border-top-color: #4c84a9;
+				border-right-color: #4c84a9;
+				border-bottom-color: #4c84a9;
+				border-left-color: #4c84a9;
+				border-top: none !important;
+				color: #a32b0a;
+				background: #cec9c5;
+				border-spacing: 0px 10px;
+				border-collapse: separate;
+			}
+			.art-content .art-postcontent-0 .layout-item-3 {
+				color: #a32b0a;
+				background: #cec9c5;
+				padding-right: 10px;
+				padding-left: 10px;
+			}
+			.art-content .art-postcontent-0 .layout-item-4 {
+				color: #a32b0a;
+				padding-right: 10px;
+				padding-left: 10px;
+			}
+			.ie7 .post .layout-cell {
+				border: none !important;
+				padding: 0 !important;
+			}
+			.ie6 .post .layout-cell {
+				border: none !important;
+				padding: 0 !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="art-main">
+			<div class="art-sheet clearfix">
+				<div class="art-layout-wrapper clearfix">
+					<div class="art-content-layout">
+						<div class="art-content-layout-row">
+							<div class="art-layout-cell art-content clearfix">
+								<article class="art-post art-article">
+									<div class="art-postmetadataheader">
+										<h2 class="art-postheader">GESTIÓN DE ARCHIVOS</h2>
+									</div>
+									<div class="art-postcontent art-postcontent-0 clearfix">
+										<div class="art-content-layout">
+											<div class="art-content-layout-row">
+												<div
+													class="art-layout-cell layout-item-0"
+													style="width: 33%"
+												>
+													<p style="text-align: center;">
+														<img
+															width="252"
+															height="228"
+															alt=""
+															src="{{ url_for('static', filename='images/subir.png') }}"
+														/><br />
+													</p>
+												</div>
+												<div
+													class="art-layout-cell layout-item-0"
+													style="width: 33%"
+												>
+													<p style="text-align: center;">
+														<img
+															width="280"
+															height="229"
+															alt=""
+															src="{{ url_for('static', filename='images/gestion.png') }}"
+														/><br />
+													</p>
+												</div>
+											</div>
+										</div>
+										<div class="art-content-layout-wrapper layout-item-1">
+											<div class="art-content-layout layout-item-2">
+												<div class="art-content-layout-row">
+													<div
+														class="art-layout-cell layout-item-3"
+														style="width: 33%"
+													>
+														<p style="text-align: center;">
+															<br />
+															<a class="art-button" href="/Upload"
+																>Subir Archivo</a
+															>
+														</p>
+													</div>
+													<div
+														class="art-layout-cell layout-item-4"
+														style="width: 33%"
+													>
+														<p style="text-align: center;">
+															<br />
+															<a class="art-button" href="/Documents"
+																>Visualizar Archivos</a
+															>
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+				<footer class="art-footer clearfix">
+					<div class="art-content-layout-wrapper layout-item-0">
+						<div class="art-content-layout layout-item-1">
+							<div class="art-content-layout-row">
+								<div class="art-layout-cell layout-item-2" style="width: 50%">
+									<p><br /></p>
+								</div>
+								<div class="art-layout-cell layout-item-2" style="width: 50%">
+									<p style="text-align: right;"><br /></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+			<p class="art-page-footer">
+				<span id="art-footnote-links"></span>
+			</p>
+		</div>
+	</body>
+</html>
